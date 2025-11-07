@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PREDEFINED_HABITS } from '../constants/habits';
 
 const AddHabitForm = ({ onAddHabit }) => {
   const [habitName, setHabitName] = useState('');
@@ -15,24 +16,9 @@ const AddHabitForm = ({ onAddHabit }) => {
     }
   };
 
-  const predefinedHabits = [
-    '💧 Drink 8 glasses of water',
-    '🏃‍♂️ Exercise for 30 minutes',
-    '📚 Read for 20 minutes',
-    '🧘‍♀️ Meditate for 10 minutes',
-    '🌅 Wake up early',
-    '📱 No phone before bed',
-    '🥗 Eat healthy meals',
-    '✍️ Write in journal',
-    '🛌 Sleep 8 hours',
-    '🚶‍♀️ Walk 10,000 steps',
-    '🍎 Eat 5 fruits/vegetables',
-    '💻 No social media for 1 hour'
-  ];
-
   const filteredHabits = habitName.length === 0 
-    ? predefinedHabits 
-    : predefinedHabits.filter(habit =>
+    ? PREDEFINED_HABITS 
+    : PREDEFINED_HABITS.filter(habit =>
         habit.toLowerCase().includes(habitName.toLowerCase())
       );
 

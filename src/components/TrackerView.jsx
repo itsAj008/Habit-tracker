@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import useTrackerStore from '../store/trackerStore';
+import { PREDEFINED_HABITS } from '../constants/habits';
 
 function TrackerView({ tracker, onBack, onOpenMonthly, onOpenStats }) {
   const [selectedWeek, setSelectedWeek] = useState(0);
@@ -13,25 +14,10 @@ function TrackerView({ tracker, onBack, onOpenMonthly, onOpenStats }) {
 
   const getDaysOfWeek = () => ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
   
-  const predefinedHabits = [
-    '💧 Drink 8 glasses of water',
-    '🏃‍♂️ Exercise for 30 minutes',
-    '📚 Read for 20 minutes',
-    '🧘‍♀️ Meditate for 10 minutes',
-    '🌅 Wake up early',
-    '📱 No phone before bed',
-    '🥗 Eat healthy meals',
-    '✍️ Write in journal',
-    '🛌 Sleep 8 hours',
-    '🚶‍♀️ Walk 10,000 steps',
-    '🍎 Eat 5 fruits/vegetables',
-    '💻 No social media for 1 hour'
-  ];
-
   const getFilteredHabits = () => {
     return newTaskName.length === 0 
-      ? predefinedHabits 
-      : predefinedHabits.filter(habit =>
+      ? PREDEFINED_HABITS 
+      : PREDEFINED_HABITS.filter(habit =>
           habit.toLowerCase().includes(newTaskName.toLowerCase())
         );
   };

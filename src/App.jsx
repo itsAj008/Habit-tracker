@@ -5,12 +5,33 @@ import TrackerCard from './components/TrackerCard'
 import TrackerView from './components/TrackerView'
 import MonthlyView from './components/MonthlyView'
 import EnhancedStats from './components/EnhancedStats'
+import { 
+  listChecklist,  
+  emptyInsideGif,
+  emptyShelvesGif,
+  laptopIcon, 
+  musicIcon, 
+  paintIcon, 
+  runningIcon, 
+  treadmillIcon, 
+  weightliftingIcon 
+} from './assets'
 import "./App.css"
 
 function App() {
   const { trackers, createTracker, updateTracker, deleteTracker, getTracker } = useTrackerStore();
   const [currentView, setCurrentView] = useState('home'); // 'home', 'create', 'tracker', 'monthly', 'stats'
   const [selectedTrackerId, setSelectedTrackerId] = useState(null);
+  const [currentGif, setCurrentGif] = useState(0); // For alternating between GIFs
+
+  // Array of available empty state GIFs
+  const emptyGifs = [emptyInsideGif, emptyShelvesGif];
+  const habitsIcons = [
+    laptopIcon,
+    musicIcon,
+    paintIcon,
+    runningIcon,
+    weightliftingIcon];
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -89,7 +110,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🎯 Habit Tracker</h1>
+          <img src={listChecklist} width="100" height="139" alt="logo" />
+          <h1>Habit Tracker</h1>
         <p className="date">{today}</p>
       </header>
 
@@ -106,9 +128,21 @@ function App() {
 
           {trackers.length === 0 ? (
             <div className="empty-state">
-              <div className="empty-icon">📊</div>
+              <div className="empty-gif" onClick={() => setCurrentGif((prev) => (prev + 1) % emptyGifs.length)}>
+                <img 
+                  src={emptyGifs[currentGif]}
+                  alt='empty gif'
+                  className="empty-animation" 
+                />
+              </div>
               <h3>No trackers yet!</h3>
               <p>Create your first habit tracker to start building better routines.</p>
+              <div className="habit-icons">
+                {habitsIcons.map(icon => (
+                  <img src={icon} className="habit-icon" />
+                ))}
+                
+              </div>
             </div>
           ) : (
             <div className="trackers-section">
@@ -129,7 +163,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Track your progress, build better habits! 💪</p>
+        <p>Track your progress, build better habits! </p>
       </footer>
     </div>
   )

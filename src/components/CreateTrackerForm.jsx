@@ -1,25 +1,11 @@
 import { useState } from 'react';
+import { PREDEFINED_HABITS } from '../constants/habits';
 
 const CreateTrackerForm = ({ onCreateTracker, onCancel }) => {
   const [title, setTitle] = useState('');
   const [tasks, setTasks] = useState(['']);
   const [weeks, setWeeks] = useState(4);
   const [showSuggestions, setShowSuggestions] = useState({});
-
-  const predefinedHabits = [
-    '💧 Drink 8 glasses of water',
-    '🏃‍♂️ Exercise for 30 minutes',
-    '📚 Read for 20 minutes',
-    '🧘‍♀️ Meditate for 10 minutes',
-    '🌅 Wake up early',
-    '📱 No phone before bed',
-    '🥗 Eat healthy meals',
-    '✍️ Write in journal',
-    '🛌 Sleep 8 hours',
-    '🚶‍♀️ Walk 10,000 steps',
-    '🍎 Eat 5 fruits/vegetables',
-    '💻 No social media for 1 hour'
-  ];
 
   const addTask = () => {
     setTasks([...tasks, '']);
@@ -39,8 +25,8 @@ const CreateTrackerForm = ({ onCreateTracker, onCancel }) => {
 
   const getFilteredHabits = (taskValue) => {
     return taskValue.length === 0 
-      ? predefinedHabits 
-      : predefinedHabits.filter(habit =>
+      ? PREDEFINED_HABITS 
+      : PREDEFINED_HABITS.filter(habit =>
           habit.toLowerCase().includes(taskValue.toLowerCase())
         );
   };
