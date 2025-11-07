@@ -10,7 +10,7 @@
 - **Larger, more prominent dots** with subtle shadows and borders
 
 ### Visual Examples:
-
+   
 ```
 Day 24 (Today) - Example:
 ┌─────────────┐

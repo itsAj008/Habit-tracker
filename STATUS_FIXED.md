@@ -5,8 +5,8 @@
 Your habit tracker is now running perfectly with all styling issues fixed!
 
 ### 🚀 **What's Working:**
-
-#### 🏠 **Home Page**
+      
+#### 🏠 **Home Page**  
 - Beautiful gradient background (blue to purple)
 - Professional tracker cards with hover effects
 - Responsive grid layout

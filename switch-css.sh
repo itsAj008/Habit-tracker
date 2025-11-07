@@ -5,7 +5,7 @@
 
 MODE=${1:-"help"}
 
-case $MODE in
+case $MODE in  
   "tailwind")
     echo "🎨 Switching to Tailwind CSS..."
     # Make sure Tailwind files exist

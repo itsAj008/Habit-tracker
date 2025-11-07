@@ -18,7 +18,7 @@ A beautiful and intuitive habit tracking application built with React and Vite. 
 
 - Node.js (version 14 or higher)
 - npm or yarn
-
+  
 ### Installation
 
 1. Clone the repository or download the files

@@ -25,7 +25,7 @@ You can add Tailwind classes alongside existing CSS classes:
 // Example: Add Tailwind utilities to existing components
 <div className="tracker-card hover:shadow-xl transition-all duration-300">
   {/* existing content */}
-</div>
+</div>  
 ```
 
 #### Option 2: Component-by-Component Migration
